@@ -1,0 +1,639 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300;400;500;700;900&display=swap");
+
+@font-face {
+	font-family: "Eisenhower";
+	src: url("./Fonts/Eisenhower.ttf");
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+nav * {
+	margin-top: 0.5em;
+}
+
+nav .logo img {
+	width: 150px;
+}
+
+nav,
+footer {
+	background: black;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+nav {
+	font-weight: 500;
+}
+
+nav .icon {
+	color: white;
+	font-size: 22px;
+}
+
+.fa-user {
+	margin-right: 1em;
+}
+
+ul {
+	list-style: none;
+}
+
+nav ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+nav ul li a {
+	padding: 1rem;
+	transition: all 0.3s ease-in;
+}
+
+li a:hover {
+	cursor: pointer;
+	color: #da291c;
+}
+
+.icon:hover {
+	cursor: pointer;
+}
+
+.inner-li li a {
+	margin-left: 1em;
+	color: gray;
+}
+
+/* ******END OF NAVBAR********* */
+
+/* *****HERO SECTION*********** */
+
+main {
+	position: relative;
+}
+
+.container:before {
+	content: "";
+	background-image: url(./assets/fitness-gym-freihantel.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 10%;
+	filter: contrast(30%) brightness(10%);
+	width: 100%;
+	height: 110%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.text {
+	position: absolute;
+	top: 0;
+	font-size: 100px;
+	width: 100%;
+	text-align: center;
+	top: 40%;
+	font-family: Eisenhower;
+	color: rgba(0, 0, 0, 0.8);
+	/* text-shadow: 4px 4px 3px rgba(255, 255, 255, 0.274); */
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5),
+		0px -1px 0px rgba(0, 0, 0, 0.7);
+}
+.slides {
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+	padding: 2em;
+}
+
+.slides .slideshow {
+	position: relative;
+}
+
+.pic-text {
+	color: white;
+	display: none;
+	position: absolute;
+	bottom: 20px;
+	font-size: 30px;
+	width: 100%;
+	text-align: center;
+	font-family: "Anton", sans-serif;
+	background-color: rgba(0, 0, 0, 0.678);
+}
+
+.oddslide,
+.evenslide {
+	position: absolute;
+	left: 0px;
+	height: 20px;
+	top: 0;
+	border-left: 8px solid black;
+	height: 700px;
+	width: 400px;
+	filter: contrast(100%) grayscale(70%);
+}
+
+.oddslide {
+	animation: slide 3s infinite;
+}
+.evenslide {
+	animation: slide2 3s infinite;
+}
+
+/* #slideshow li:nth-child(2) {
+	animation-delay: 5s;
+	opacity: 0;
+} */
+
+.slideshow img {
+	height: 700px;
+	width: 400px;
+}
+
+@keyframes slide {
+	0% {
+		transform: translateY(-1000px);
+		opacity: 0;
+	}
+
+	40%,
+	51%,
+	60% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(1000px);
+		opacity: 0;
+	}
+}
+
+@keyframes slide2 {
+	0% {
+		transform: translateY(1000px);
+		opacity: 0;
+	}
+
+	40%,
+	51%,
+	60% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(-1000px);
+		opacity: 0;
+	}
+}
+
+.slides:hover .oddslide,
+.slides:hover .evenslide {
+	/* animation-play-state: paused; */
+	cursor: pointer;
+	animation: none;
+}
+
+.oddslide:hover,
+.evenslide:hover {
+	filter: brightness(120%) grayscale(0);
+}
+
+/* ***back to top button******* */
+
+.top {
+	text-align: right;
+}
+
+.fa-chevron-up {
+	font-size: 30px;
+	border-radius: 50px;
+	box-shadow: 0px 0px 10px 3px lightgrey;
+	padding: 0.2em;
+	background: white;
+	color: black;
+}
+
+.oddslide:hover .pic-text,
+.evenslide:hover .pic-text {
+	display: block;
+}
+
+/* *******Footer********** */
+
+footer {
+	margin-top: 3em;
+	padding: 2em;
+}
+
+footer img {
+	width: 100px;
+}
+
+footer li {
+	line-height: 2.5em;
+}
+
+.fa-brands {
+	font-size: 22px;
+	margin-left: 1em;
+}
+
+/* ********Products********** */
+
+.wrapper {
+	display: grid;
+	grid-template-columns: 200px 200px repeat(2, 1fr) 200px;
+
+	grid-template-areas:
+		"header header header header header"
+		". aside main main ."
+		"footer footer footer footer footer";
+}
+
+main {
+	grid-area: main;
+}
+
+.pro-head {
+	grid-area: header;
+	margin-bottom: 1em;
+}
+
+.pro-foot {
+	grid-area: footer;
+}
+
+aside {
+	grid-area: aside;
+}
+
+aside a {
+	color: black;
+	line-height: 3em;
+}
+
+aside ul {
+	margin-top: 2em;
+}
+
+.card--image img {
+	width: 350px;
+	height: 350px;
+}
+
+.card-container {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1em;
+	gap: 6em;
+}
+
+.color {
+	color: gray;
+	margin-top: 0.5em;
+}
+
+.card {
+	position: relative;
+}
+
+/* .card--image::after{
+	content: "\f06e";
+	font-family: 'FontAwesome';
+	position: absolute;
+	top: 150px;
+	left: 100px;
+	color: white;
+	font-size: 20px;
+
+}  */
+
+.icons {
+	position: absolute;
+	top: 0px;
+	font-size: 1.5em;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 350px;
+	width: 350px;
+	color: white;
+	opacity: 0;
+	display: flex;
+}
+
+.icons:hover {
+	opacity: 1;
+	background: rgba(0, 0, 0, 0.26);
+	animation: fadeIn 0.5s forwards;
+	cursor: pointer;
+}
+
+.fa-eye:hover,
+.fa-bag-shopping:hover {
+	animation: slideUp 0.5s forwards;
+}
+
+.fa-eye,
+.fa-bag-shopping {
+	cursor: pointer;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes slideUp {
+	0% {
+		transform: translateY(0%);
+	}
+	100% {
+		transform: translateY(-20%);
+		opacity: 1;
+	}
+}
+/* ****about****** */
+
+.main-about::before {
+	content: "";
+	background-image: url(./assets/Battle-Rope-Exercises-750x422.jpg);
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-size: cover;
+	filter: blur(5px) contrast(100%) brightness(30%);
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.main-text {
+	color: white;
+	height: 90vh;
+	text-align: center;
+	padding: 1em;
+}
+
+.main-text h2 {
+	color: red;
+	padding-top: 10%;
+}
+
+/* ****product page************* */
+
+.thumbnails img {
+	width: 110px;
+	border: 1px solid lightgrey;
+}
+
+.thumbnails {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.product-detail h3 {
+	margin-top: 2em;
+}
+
+.product-icons {
+	display: flex;
+	flex-direction: column;
+	font-size: 1em;
+	margin-top: 2em;
+	line-height: 2em;
+}
+
+span {
+	margin-left: 1.5em;
+}
+
+.product-main {
+	display: flex;
+	padding: 1em;
+	justify-content: space-evenly;
+	width: 80%;
+	margin: 5em auto;
+}
+
+.product-detail {
+	width: 600px;
+}
+
+.main-image {
+	height: 520px;
+	overflow: hidden;
+}
+
+.buy {
+	border: none;
+	margin-top: 2em;
+	padding: 15px 45px;
+	color: white;
+	background: linear-gradient(#da291c, #a21409);
+}
+
+.buy:hover {
+	background: red;
+	cursor: pointer;
+}
+
+.main-image input[type="checkbox"] {
+	content: url("./assets/bb2.png");
+
+	width: 600px;
+	object-position: 0px -30px;
+}
+
+.main-image input[type="checkbox"]:checked {
+	content: url("./assets/bb4.png");
+}
+
+/* ********end of product page******* */
+
+.pro-color {
+	display: flex;
+	gap: 0.5em;
+	margin-top: 0.5em;
+	opacity: 0;
+	width: 30%;
+}
+
+.pro-color * {
+	width: 20px;
+	height: 20px;
+}
+
+.grey {
+	background: grey;
+}
+
+.black {
+	background: black;
+}
+
+.lgrey {
+	background: lightgray;
+}
+
+.color:hover .pro-color {
+	transition: all 0.5s ease-in;
+	opacity: 1;
+	cursor: pointer;
+}
+
+.resp input,
+label {
+	display: none;
+}
+
+.m-aside {
+	display: none;
+}
+/* ********media query******** */
+
+/* small devices (600px and down) */
+@media only screen and (max-width: 600px) {
+	.slides {
+		overflow: scroll;
+		justify-content: space-between;
+	}
+	.oddslide,
+	.evenslide {
+		animation: none;
+		filter: none;
+	}
+
+	.text {
+		font-size: 60px;
+	}
+
+	.pic-text {
+		display: block;
+		font-size: 30px;
+	}
+
+	nav {
+		padding-left: 1em;
+		padding-right: 1em;
+		font-size: 1em;
+		justify-content: space-between;
+	}
+
+	nav .icon {
+		display: none;
+	}
+
+	nav img {
+		width: 120px;
+	}
+
+	nav ul,
+	footer ul,
+	aside {
+		display: none;
+	}
+
+	label {
+		display: block;
+	}
+
+	.resp label span.icono {
+		font-family: "FontAwesome";
+		font-size: 2rem;
+		color: white;
+	}
+
+	.resp label span::before {
+		content: "\f0c9";
+	}
+
+	.resp input:checked ~ .expandable {
+		display: block;
+		z-index: 1;
+		position: absolute;
+		top: 100px;
+		width: 100%;
+		text-align: center;
+		background: #da291ccb;
+		margin-left: -1em;
+		line-height: 2em;
+	}
+
+	.resp input:checked + label span::before {
+		content: "\f00d";
+	}
+
+	.product-main {
+		flex-direction: column;
+
+		margin: 1em;
+	}
+
+	/* footer {
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+	} */
+
+	/* ************product page************ */
+
+	.thumbnails {
+		flex-direction: row;
+	}
+
+	.product-detail {
+		width: 495px;
+		text-align: justify;
+	}
+
+	.main-image {
+		width: 495px;
+		overflow: scroll;
+	}
+
+	.wrapper,
+	.card-container,
+	.m-aside {
+		display: flex;
+	}
+
+	.wrapper {
+		flex-direction: column;
+	}
+
+	.card-container {
+		justify-content: center;
+	}
+
+	.m-aside {
+		justify-content: space-evenly;
+		background-color: #da291c;
+		padding: 1em;
+		list-style: none;
+	}
+
+	.p-expan {
+		margin-top: 3.5em;
+	}
+}
